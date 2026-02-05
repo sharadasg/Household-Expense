@@ -1,0 +1,20 @@
+insert into household_expenses(
+(
+ expense_year,
+    expense_month,
+    expense_type,
+    shop_name,
+    item_category,
+    amount,
+    purchase_date
+)
+select
+ extract(year from expense_year),
+ extract(month from expense_month),
+  'Cash' as expense_type,
+   Shop Name as shop_name,
+    item as item_category,
+    amount,
+    date as purchase_date
+from 
+raw_expenses;
